@@ -1,10 +1,7 @@
 # BRHackTools.sh
 
-Tell why [BRHackTools.sh](http://brhacktools.sh/). Because I am a Brazilian Guy (BR, but not, I do not live in Rio :)
-
 Questions:<br/>
 **Q:** Why is called BRHackTools.sh?<br/>
-
 **A:** Because I am a Brazilian Guy (BR, but not, I do not live in Rio :)<br/>
 
 **Q:** But, this script is shit.<br/>
