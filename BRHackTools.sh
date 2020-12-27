@@ -758,3 +758,6 @@ showmenu #show de initial nem
           #90 - Revist the script, read the script from the top to the begining and see what cam be done better
           #91 - Study and implement airgedon its good to do deauth atacks in softwarey
 
+
+
+
