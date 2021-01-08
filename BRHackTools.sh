@@ -707,7 +707,6 @@ showmenu #show de initial nem
          #31 - Create a function to check if a program is instaling before runnning and if not instaled then ask to install, and apply to all my tools in this script
          #32 - Study and implement hashcat 
          #32 - Create a Function who: 1 - you imput an wifi nam 2 -  the coputer clone that mac adress from the AP to avoid detection, 3 - Show options to crack that wifi, like: Show a fake iput from password, and automated tools using weakness
-         #33 - Buy a nano wifi card, insert on the notebok and build an script who: 1 - Check what wifi i am in 2 - Wifi my wifi != Casinha Than - 3 - Run an script who create fake wifis and capute passwords using an fake facebook login 4 - Put that script to run automatic at boot of my notebook
         #34 - Replace all echos for printf, its better
         #35 - See how i avoid to use eval, its too bat for security
         #36 - Study and implement a funciontion using curl, there so much good about, like set and get cookieas, or send post, is very versatile
