@@ -1,30 +1,38 @@
 # Future Features
 
-**This is the resource schedule, if you need something that is not on that list you have three options:**</br>
-**1** - You can request the resource for me, if it is a good idea I will implement it, but at the end of the task list.</br>
-**2** - If you need urgency, you can write the code and send it to me.</br>
-**3** - Pay me to implement the feature. <br/>
+**This is the resource schedule, if you need something that is not on that list you have three options:**\
+**1 -** You can request the resource for me, if it is a good idea I will implement it, but at the end of the task list.\
+**2 -** If you need urgency, you can write the code and send it to me.\
+**3 -** Pay me to implement the feature.\
 
-0.0. O menu do change mac adress não esta fucnionando corretamente corrige lá
-0.1. Revisa se esta funcionando certinho e altera de torghost para torghostNG. tem o comando que deve ser usado no notes
-1.1 Implementa o Jhon The reaper aqui no codigo, tem a logica no notion
- 2 - Muda todas as vezes que preciso solicitar uma placa de wifi para o nome que vem da função selectedwificard
- 9 - Estuda e implemneta nmap
- 9.1 Faz uma opção no nmap com vull script like sudo nmap -sS --script vuln -vv www.siteemquestao.com.br
- 10 - Faz um menu para ganhar acesso powershell em windows usando o comando a seguinr  \psexec.py administrator@10.10.10.27\" tem um exemplo no primeior hack do hackthebox "
- 10.1 - Revist the script, read the script from the top to the begining and see what can be done better
- 11 - Faz um menu pra conectar no msql usando o padrao acima, sendo que o login é o começo o ip é o do servidor mssqlclient.py ARCHETYPE/sql_svc@10.10.10.27 -windows-auth
- 12 - Um menu para criar um webserver temporario usando python ---- sudo python3 -m http.server 80
- 13 - Muda todas as variaveis para minuscula é uma boa pratica pois variaveis do sistema são em maiuscula
- 14 - Faz um menu pra dar start no metaspoit: msfdb int .... msfconsole
- 15 - Add -vv para todos os comandos nmap do script pra poder acompanhar em tempo real
- 16 - Cria um menu para bruteforce e dentro do menu na hora que escolhe faz uma observação em cima como uma opçoa 0 por exempol ocrito 0 - OBS! If you need to scan a dns or vhost there is a alwsome tool called GoBuster, study.
- 17 - Estuda e coloca um menu pra dar airodump que exibe as conexões, se não me engano é sudo irodump-ng wlan0 mas testa e acho que precisa colocar em modo monitor também usando o airclack ou algo assim
- 18 - Implementa o Hydra, é uma exelente ferramenta de bruteforce, já tem no notes uma logica de programação
- 19 - Coloca o dirsearch para rodar como sudo, pois assim consegue salvar logs normalmente, pois esta sem permissõa
- 20 - tem umas opções mais completas no dirsearch como por exemplo usar uma lista de extenções, que deve ser tipo cvs, além de outras coisas, como recursivo ou nao e o nivel de recursividade, coloca no codigo, estuda melhor e planeja pra diexar o mais completo possivel
- 20.1 - Revist the script, read the script from the top to the begining and see what cam be done better
- 21 - subistituo onde esta test por [[ comand ]] é um jeito melhor de se fazer e o outro jetio esta obsoleto
+**This list is constantly evolving, so duplicate items or grammatical errors are common here. Imagine this page as a great brainstorm.**\
+**If you have any ideas, you can branch this page and commit to me. If the idea is good, I will implement**\
+
+**1 -** The change mac menu is not working? Check this\
+**2 -** Change and test torghost option to torghostNG\
+**3 -** Implement Jhon the reaper here, there is a logic on my notion page\
+**4 -** Change al the things that i need to chose an wifi card to the already developed selectedwificard\
+**5 -** Study and implment nmap(Don't forget to make some funcion using -sS --script vuln) and put a option to chose the type of verbosity\
+**6 -** Study and implment some functions using psexec.py\
+**7 -** Study and implement mssqlclient.py.\
+**8 -** There are other great tools in inpackt? like psexec and mssqlclient, check and implement.\
+**9 -** Implement a menu to creat an temporary server using python, like python3 -m http.server 80, and the path to the server\
+**10 -** Revist the script, read top from boton and see what can be done better\
+**11 -** Change all the variables in the script to lowercase, its a best pratice\
+**12 -** Check if there is a way to implment automatizations in metasploit here, to automate some tasks\
+**13 -** Study and implement GoBuster, but, what i do about dirbuster?\
+**14 -** Implement a menu for airodump and aircrack, to show conections, put in monitor mode and other functions\
+**18 -** Implement Hydra, there is a logic in my Notion page\
+**19 -** If i choose to mantin dirsearch, maybe i will need to put as root because the logs are not saving correctly\
+**20 -** Revist the script, read top from boton and see what can be done better\
+**21 -** If i choose to do not replace dirsearch, check if there is other options that area not implemented, like recursive use and cvs use\
+**22 -** Replace where is "test" for [[comand]]. Test is a obsolete function
+
+
+
+
+
+
  22 - estuda o crunch e implementa no script é um otimo programa para gerar listas de senhas para quando precisar descobrir uma senha mas já tem um padrão em mente
  24 - Sera que este é o mlehor jeit ode fazer menu possivel? Vis sobre a possibilidade de usar o comand select do bash, da uma estudada nisso, pode ser uma boa tem mais aqui https://wiki.bash-hackers.org/syntax/ccmd/user_select
  27 - Eu não sei se é possivle, mas se for que tal dar uma estudada no pyshark? e implentar aqui em um script de bash, é possivel ou so quando este script mudar pra python?
