@@ -2,7 +2,7 @@
 
 Questions:<br/>
 **Q:** Why is called BRHackTools.sh?<br/>
-**A:** Because I am a Brazilian Guy (BR, but not, I do not live in Rio :)<br/>
+**A:** Because I am a Brazilian Guy (BR, but not, Not from Rio :)<br/>
 
 **Q:** But, this script is shit.<br/>
 **A:** You have one option. Tell me how to improve ;)<br/> 
