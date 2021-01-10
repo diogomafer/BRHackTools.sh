@@ -1,5 +1,7 @@
+# Future Features
 
-        future features
+**This is the resource schedule, if you need something that is not on that list you have three options: 1 - You can request the resource for me, if it is a good idea I will implement it, but at the end of the task list . 2 - If you need urgency, you can write the code and send it to me. 3 - Pay me to implement the feature.** <br/>
+
         0.0. O menu do change mac adress não esta fucnionando corretamente corrige lá
         0.1. Revisa se esta funcionando certinho e altera de torghost para torghostNG. tem o comando que deve ser usado no notes
         1.1 Implementa o Jhon The reaper aqui no codigo, tem a logica no notion
