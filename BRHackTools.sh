@@ -454,73 +454,6 @@ httrackmenu(){
 
 }
 
-#Remove this in the next revision. There bether options online
-cpfgenerator(){
-
-    # gera 3 sequência de 3 caracters, números randômicos.
-    for i in {1..3};
-    do
-
-         a+=$(($RANDOM%9));
-         b+=$(($RANDOM%9));
-         c+=$(($RANDOM%9));
-
-    done
-
-    # estabelece o valor temporário do cpf, só pra poder gerar os digitos verificadores.
-    cpf="$a$b$c"
-
-    # array pra multiplicar com o 9(do 10 ao 2)primeiros caracteres do CPF, respectivamente.
-    mulUm=(10 9 8 7 6 5 4 3 2)
-
-    # um loop pra multiplicar caracteres e numeros.Utilizamos nove pois são 9 casas do CPF
-    for digito in {1..9}
-    do
-
-        # gera a soma dos números posteriormente multiplicados
-        let DigUm+=$(($(echo $cpf | cut -c$digito) * $(echo ${mulUm[$(($digito-1))]})))
-
-    done
-
-    # divide por 11
-    restUm=$(($DigUm%11))
-
-    # gera o primeiro digito subtraindo 11 menos o resto da divisão
-    primeiroDig=$((11-$restUm))
-
-    # caso o resto da divisão seja menor que 2
-    [ $restUm -lt 2 ]; primeiroDig=0
-
-    # atualizamos o valor do CPF já com um digito descoberto
-    cpf="$a$b$c$primeiroDig"
-
-    # agora um novo array pra multiplicar com o 10(do 11 ao 2) primeiros caracteres do CPF, respectivamente.
-    mulDois=(11 10 9 8 7 6 5 4 3 2)
-
-    for digitonew in {1..10}
-    do
-
-        let DigDois+=$(($(echo $cpf | cut -c$digitonew) * $(echo ${mulDois[$(($digitonew-1))]})))
-
-    done
-
-    # também divide por 11
-    restDois=$(($DigDois%11))
-
-    # gera o segundo digito subtraindo 11 menos o resto da divisão
-    segundoDig=$((11-$restDois))
-
-    # caso o resto da divisão seja menor que 2
-    [ $restDois -lt 2 ]; segundoDig=0
-
-    # exibe o CPF gerado e formatado.
-    echo -e "\033[1;35mO CPF gerado é:"
-    echo -e "\033[1;32m$a$b$c$primeiroDig$segundoDig\033[0m"
-    echo -e "Type ENTER to continue"
-    read cpf
-
-}
-
 showmenu(){
 
     while :
@@ -533,8 +466,6 @@ showmenu(){
          echo "3 - TShark (Wireshark Non-Graphical)"
          echo "4 - Anonymize kali"
          echo "5 - Windows Network Hacking Tools "
-         echo "6 - CPF Generator (Brazilian equivalent to Social Securty Number)"
-         echo "7 - Jhon the ripper"
          echo "0 - exit"
 
         read SELECTEDTOOL
@@ -662,12 +593,6 @@ showmenu(){
                     ;;
                 esac
             done
-            ;;
-            6)
-            cpfgenerator
-            ;;
-            7)
-            jhontheripper
             ;;
             0)
             banner "Bye"
