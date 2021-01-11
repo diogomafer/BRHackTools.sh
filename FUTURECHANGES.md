@@ -57,9 +57,6 @@
 **48 -** Study massscan, its good for mass scaning ports, or rustscan? What is better?\
 **49 -** Add an option to windows tools, like mimikatz and think if only show then or run then, i think run its better, butt tike about\
 **50 -** Revist the script, read top from boton and see what can be done better\
-
-
-
 **51 -** Study and implement msfvenom its a great tool to make palyloads\
 **52 -** Study and implement nikto\
 **53 -** Study and implement termshark, its good to see pcaps in terminal\
@@ -67,19 +64,18 @@
 **55 -** Implement option so search ".bak" in in websearches, it really good to see some codes, in cgi-bin its good to search for .sh for exemplo because shell shock atacks\
 **56 -** Study and implement Uchecker, its a good tool to check for not uptodate tools on servers\
 **57 -** Study and implement Snort, its a preaty good to to check for viruses in network, its good for networks and home users\
-
-Remove cpf generator, there is better tools online\
- Study and implment sublist3r, its a really great scanner for subdomains ussing ossint\
-Study and implement pwncat, its a really great reverse shell hander, is the one by calleb stuart, not the other\
-Study and implment nikton its a good webscaner\
-Study and implment social engenner tookit, its really god to work with social engineer\
-Change DirBuster by Gobuster? Search more about... Gobuster has more users, maybe its better? actualy is more faster than dirbuster, so thats is what matter\
-Implement wfuzz its preaty great\
-Study and Implement Sqlmap\
-Implement te 'sectlist' program from kali, its a copy for the repository on github. Maybe a menu here or an option to use in the aplications who neded, also study what is the best wordlists for who?\
-Study and implent enum4linux, its preaty good to use to enumerate samba shares\
-Create an option to disable showing comands after runnning. Maybe a flag before ruing? like BRHackTools -noverbose\
-Study and implement sherlock, its a great tool for OSINT\
-Study and implement airgedon its good to do deauth atacks in softwarey\
-What i can do to make this script more beautiful? Maybe some colors or ident?\
-Maybe Implement RustScan? Its so fast
+**58 -** Study and implment sublist3r, its a really great scanner for subdomains ussing ossint\
+**59 -** Study and implment nikton its a good webscaner\
+**60 -** Revist the script, read top from boton and see what can be done better\
+**61 -** Study and implment social engenner tookit, its really god to work with social engineer\
+**62 -** Change DirBuster by Gobuster? Search more about... Gobuster has more users, maybe its better? actualy is more faster than dirbuster, so thats is what matter\
+**63 -** Implement wfuzz its preaty great\
+**64 -** Study and Implement Sqlmap\
+**65 -** Implement te 'sectlist' program from kali, its copy for the repository on github. Maybe a menu here or an option to use in the aplications who neded, also study what is the best wordlists for who?\
+**66 -** Study and implent enum4linux, its preaty good to use to enumerate samba shares\
+**67 -** Create an option to disable showing comands after runnning. Maybe a flag before ruing? like BRHackTools -noverbose\
+**68 -** Study and implement sherlock, its a great tool for OSINT\
+**69 -** Study and implement airgedon its good to do deauth atacks in softwarey\
+**70 -** Revist the script, read top from boton and see what can be done better\
+**71 -** What i can do to make this script more beautiful? Maybe some colors or ident?\
+**72 -** Maybe Implement RustScan? Its so fast
