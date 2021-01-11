@@ -1,6 +1,6 @@
 # Future Features
 
-**This is the resource schedule, if you need something that is not on that list you have three options:**\
+**This is the taks schedule, if you need something that is not on that list you have three options:**\
 **1 -** You can request the resource for me, if it is a good idea I will implement it, but at the end of the task list.\
 **2 -** If you need urgency, you can write the code and send it to me.\
 **3 -** Pay me to implement the feature.\
