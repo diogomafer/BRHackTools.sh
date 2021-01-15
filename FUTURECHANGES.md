@@ -79,3 +79,4 @@
 **70 -** Revist the script, read top from boton and see what can be done better\
 **71 -** What i can do to make this script more beautiful? Maybe some colors or ident?\
 **72 -** Maybe Implement RustScan? Its so fast
+73 - There is code who can be optimized by a function? for example, in slowhttptest i can create a function to pass the parameter(like -s, or -i, etc) an text and then apent de comand, think about

@@ -235,19 +235,7 @@ kismetmenu(){
 }
 
 
-
-    #CONTINUE REVISITING THE SCRIPT AFTER HERE!!!
-
-
-
-
-
-
-
-
-
-
-
+    #CONTINUE REVISITING THE SCRIPT AFTER HERE!!!  
 
 
 
@@ -259,11 +247,93 @@ kismetmenu(){
 
     while [ -z "$slowhttptesttargeturl" ] #in loop unless the user inset a comand
     do
-
-        read -p "Please intert the target absolute URL: " slowhttptesttargeturl
-
+        read -p "Please intert the target absolute URL: " slowhttptesttargeturl 
     done
-        exe eval "slowhttptest -c 1000 -H $comandlogfile -i 10 -r 200 -t GET -u $slowhttptesttargeturl -x 24 -p 3"
+
+    while : #start an menu in a while to force the user to select one option
+    do
+    
+        banner "Chose an Option:"
+        printf "1 - Slow Read Test mode (-X)(Reading HTTP responses slowly) \n"
+        printf "2 - Slow POST mode(-B)(Send unfinished HTTP message bodies) \n"
+        printf "3 - SlowLoris mode(-H)(Send unfinished HTTP requests) \n"
+        printf "4 - Range Header (-R) (Send malicious Range Request header data) \n"
+        printf "0 - exit \n"
+
+        read selectedoptionslowhttptestmenu
+        case $selectedoptionslowhttptestmenu in
+            1)
+            read -p "Specify the start range of TCP: (-w)  or Type ENTER to use the default (512): " slowhttpcomandoption
+            ${slowhttpcomandoption:=512}&>/dev/null # if the user not imput value use the default
+            slowhttpapendcommand="$slowhttpapendcommand -w $slowhttpcomandoption" 
+            unset slowhttpcomandoption #to garante dont pass the value to the next imput
+
+            read -p "Specify the end range of TCP: (-y) or Type ENTER to use the default (1024): " slowhttpcomandoption
+            ${slowhttpcomandoption:=1024}&>/dev/null # if the user not imput value use the default
+            slowhttpapendcommand="$slowhttpapendcommand -y $slowhttpcomandoption" 
+            unset slowhttpcomandoption #to garante dont pass the value to the next imput
+
+            read -p "Specify the interval between read operations?(-n) or type ENTER to use the default(5): " slowhttpcomandoption
+            ${slowhttpcomandoption:=5}&>/dev/null # if the user not imput value use the default
+            slowhttpapendcommand="$slowhttpapendcommand -n $slowhttpcomandoption" 
+            unset slowhttpcomandoption #to garante dont pass the value to the next imput
+
+            read -p "Specify the number of times the resource wold be requested?(-k) or type ENTER to use the default (3): " slowhttpcomandoption
+            ${slowhttpcomandoption:=3}&>/dev/null # if the user not imput value use the default
+            slowhttpapendcommand="$slowhttpapendcommand -k $slowhttpcomandoption" 
+            unset slowhttpcomandoption #to garante dont pass the value to the next imput
+
+            break #to continue append comands outside the case
+            ;;
+            2)
+            read -p "Specify the interval between fallow up data?: (-i) or type ENTER to use the default(110): " slowhttpcomandoption
+            ${slowhttpcomandoption:=110}&>/dev/null # if the user not imput value use the default
+            slowhttpapendcommand="$slowhttpapendcommand -i $slowhttpcomandoption" 
+            unset slowhttpcomandoption #to garante dont pass the value to the next imput
+
+            read -p "Specify the value of Content-Length? (-s) or type ENTER to use the default (8192): " slowhttpcomandoption
+            ${slowhttpcomandoption:=8192}&>/dev/null # if the user not imput value use the default
+            slowhttpapendcommand="$slowhttpapendcommand -s $slowhttpcomandoption" 
+            unset slowhttpcomandoption #to garante dont pass the value to the next imput
+
+            read -p "Specify the verb to use in HTTP request? (-t )or type ENTER to continue. " slowhttpcomandoption
+            ${slowhttpcomandoption:=8192}&>/dev/null # if the user not imput value use the default
+            slowhttpapendcommand="$slowhttpapendcommand -s $slowhttpcomandoption" 
+            unset slowhttpcomandoption #to garante dont pass the value to the next imput
+
+#
+# #if dont insert omit the option for the comand
+#
+# Specify the maximum length of fallow up data? (-x) or type ENTER to use the default(10):
+            ;;
+            3)
+#            Specify the interval between fallow up data?: (-i) or type ENTER to use the default(10):
+#
+# Specify the verb to use in HTTP request? (-t )or type ENTER to continue.
+#
+# #if dont insert omit the option for the comand
+#
+# Specify the maximum length of fallow up data? (-x) or type ENTER to use the default(24):
+            ;;
+            4)
+#            Specify the verb to use in HTTP request? (-t )or type ENTER to continue.
+#
+# Specify the start value for Range Header Attack(-a) or type ENTER to use the default(10):
+#
+# Specify the limit value for Ranger Header Attack(-b) or type ENTER to use the default(3000)
+            ;;
+            0)
+            break
+            ;;
+            *)
+            echo "Invalid Option"
+            ;;
+        esac
+    done
+
+
+exe eval "slowhttptest -u $slowhttptesttargeturl $slowhttpapendcommand"
+
 
 }
 
@@ -281,7 +351,7 @@ dirsearchmenu(){
         
 	[ $dirsearchwordlist ] && dirsearchwordlist="-w $dirsearchwordlist" #create the comand to user wordlist 
     
-done
+    done
 
 
 
