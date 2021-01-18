@@ -1,5 +1,25 @@
 #!/bin/bash 
+appendvar(){ #to apend comands to variables
 
+    # Intructions to use
+    # variabletoputthecomand="$variabletoputthecomand $(appendvar "text to put in input" "flag" "default value" "set to 0 - Only put the frag if the user enter the comand, 1 - Always put the frag")"
+    # for example
+    # slowhttpcomand="$slowhttpcomand $(appendvar "Specify the start range of TCP: (-w)  or Type ENTER to use the default (512):" "-w" "512" "1")"
+
+
+    read -p "$1" appendvarimput
+
+    [[ $4 != 0 ]] && ${appendvarimput:=$3}&>/dev/null #prevent to change the variable to default value if the comand is not obrigatory
+    appendvarreturn=" $2 $appendvarimput"
+    
+    if [ $4 -eq 0 ] #check if the frag is mandatory
+    then
+        [[ ! -z $appendvarimput ]] && echo $appendvarreturn #only return if the user type somethihng
+    else
+        echo $appendvarreturn
+    fi
+
+}
 exe() { echo "Running \"\$ $@\" in 5 seconds"; sleep 5 ; $@ ; } #Show and execute comand. Usage: exe eval 'ls -F | grep *.txt'
 
 banner() #Show in a more beaultful mode
@@ -235,14 +255,12 @@ kismetmenu(){
 }
 
 
-    #CONTINUE REVISITING THE SCRIPT AFTER HERE!!!  
 
 
+    # CONTINUE REVISITING THE SCRIPT AFTER HERE!!!  
 
 
-
-
-    slowhttptestmenu(){
+slowhttptestmenu(){
     
 
     while [ -z "$slowhttptesttargeturl" ] #in loop unless the user inset a comand
@@ -263,48 +281,20 @@ kismetmenu(){
         read selectedoptionslowhttptestmenu
         case $selectedoptionslowhttptestmenu in
             1)
-            read -p "Specify the start range of TCP: (-w)  or Type ENTER to use the default (512): " slowhttpcomandoption
-            ${slowhttpcomandoption:=512}&>/dev/null # if the user not imput value use the default
-            slowhttpapendcommand="$slowhttpapendcommand -w $slowhttpcomandoption" 
-            unset slowhttpcomandoption #to garante dont pass the value to the next imput
-
-            read -p "Specify the end range of TCP: (-y) or Type ENTER to use the default (1024): " slowhttpcomandoption
-            ${slowhttpcomandoption:=1024}&>/dev/null # if the user not imput value use the default
-            slowhttpapendcommand="$slowhttpapendcommand -y $slowhttpcomandoption" 
-            unset slowhttpcomandoption #to garante dont pass the value to the next imput
-
-            read -p "Specify the interval between read operations?(-n) or type ENTER to use the default(5): " slowhttpcomandoption
-            ${slowhttpcomandoption:=5}&>/dev/null # if the user not imput value use the default
-            slowhttpapendcommand="$slowhttpapendcommand -n $slowhttpcomandoption" 
-            unset slowhttpcomandoption #to garante dont pass the value to the next imput
-
-            read -p "Specify the number of times the resource wold be requested?(-k) or type ENTER to use the default (3): " slowhttpcomandoption
-            ${slowhttpcomandoption:=3}&>/dev/null # if the user not imput value use the default
-            slowhttpapendcommand="$slowhttpapendcommand -k $slowhttpcomandoption" 
-            unset slowhttpcomandoption #to garante dont pass the value to the next imput
+            slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the start range of TCP: (-w)  or Type ENTER to use the default (512):" "-w" "512" "1")"
+            slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the end range of TCP: (-y) or Type ENTER to use the default (1024):"  "-y" "1024" "1")"
+            slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the interval between read operations?(-n) or type ENTER to use the default(5): "  "-n" "5" "1")"
+            slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the number of times the resource wold be requested?(-k) or type ENTER to use the default (3): "  "-k" "3" "1")"
 
             break #to continue append comands outside the case
             ;;
             2)
-            read -p "Specify the interval between fallow up data?: (-i) or type ENTER to use the default(110): " slowhttpcomandoption
-            ${slowhttpcomandoption:=110}&>/dev/null # if the user not imput value use the default
-            slowhttpapendcommand="$slowhttpapendcommand -i $slowhttpcomandoption" 
-            unset slowhttpcomandoption #to garante dont pass the value to the next imput
+            slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the interval between fallow up data?: (-i) or type ENTER to use the default(110): "  "-i" "110" "1")"
+            slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the value of Content-Length? (-s) or type ENTER to use the default (8192): "  "-s" "8192" "1")"
+            slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the verb to use in HTTP request? (-t )or type ENTER to continue: "  "-t" "" "0")"
+            slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the maximum length of fallow up data? (-x) or type ENTER to use the default(10):"  "-x" "10" "1")"
 
-            read -p "Specify the value of Content-Length? (-s) or type ENTER to use the default (8192): " slowhttpcomandoption
-            ${slowhttpcomandoption:=8192}&>/dev/null # if the user not imput value use the default
-            slowhttpapendcommand="$slowhttpapendcommand -s $slowhttpcomandoption" 
-            unset slowhttpcomandoption #to garante dont pass the value to the next imput
-
-            read -p "Specify the verb to use in HTTP request? (-t )or type ENTER to continue. " slowhttpcomandoption
-            ${slowhttpcomandoption:=8192}&>/dev/null # if the user not imput value use the default
-            slowhttpapendcommand="$slowhttpapendcommand -s $slowhttpcomandoption" 
-            unset slowhttpcomandoption #to garante dont pass the value to the next imput
-
-#
-# #if dont insert omit the option for the comand
-#
-# Specify the maximum length of fallow up data? (-x) or type ENTER to use the default(10):
+            break #to continue append comands outside the case
             ;;
             3)
 #            Specify the interval between fallow up data?: (-i) or type ENTER to use the default(10):
@@ -314,6 +304,7 @@ kismetmenu(){
 # #if dont insert omit the option for the comand
 #
 # Specify the maximum length of fallow up data? (-x) or type ENTER to use the default(24):
+            break #to continue append comands outside the case
             ;;
             4)
 #            Specify the verb to use in HTTP request? (-t )or type ENTER to continue.
@@ -321,6 +312,7 @@ kismetmenu(){
 # Specify the start value for Range Header Attack(-a) or type ENTER to use the default(10):
 #
 # Specify the limit value for Ranger Header Attack(-b) or type ENTER to use the default(3000)
+            break #to continue append comands outside the case
             ;;
             0)
             break
