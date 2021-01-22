@@ -14,9 +14,9 @@ appendvar(){ #to apend comands to variables
     
     if [ $4 -eq 0 ] #check if the frag is mandatory
     then
-        [[ ! -z $appendvarimput ]] && echo $appendvarreturn #only return if the user type somethihng
+        [[ ! -z $appendvarimput ]] && printf "$appendvarreturn" #only return if the user type somethihng
     else
-        echo $appendvarreturn
+        printf "$appendvarreturn"
     fi
 
 }
@@ -254,18 +254,12 @@ kismetmenu(){
 
 }
 
-
-
-
-    # CONTINUE REVISITING THE SCRIPT AFTER HERE!!!  
-
-
 slowhttptestmenu(){
     
 
     while [ -z "$slowhttptesttargeturl" ] #in loop unless the user inset a comand
     do
-        read -p "Please intert the target absolute URL: " slowhttptesttargeturl 
+        read -p "Please intert the target absolute URL (with protocol ex:http://url): " slowhttptesttargeturl 
     done
 
     while : #start an menu in a while to force the user to select one option
@@ -283,7 +277,7 @@ slowhttptestmenu(){
             1)
             slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the start range of TCP: (-w)  or Type ENTER to use the default (512):" "-w" "512" "1")"
             slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the end range of TCP: (-y) or Type ENTER to use the default (1024):"  "-y" "1024" "1")"
-            slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the interval between read operations?(-n) or type ENTER to use the default(5): "  "-n" "5" "1")"
+            slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the interval between read operations?(-n) or type ENTER to use the default(5): " "-n" "5" "1")"
             slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the number of times the resource wold be requested?(-k) or type ENTER to use the default (3): "  "-k" "3" "1")"
 
             break #to continue append comands outside the case
@@ -297,21 +291,17 @@ slowhttptestmenu(){
             break #to continue append comands outside the case
             ;;
             3)
-#            Specify the interval between fallow up data?: (-i) or type ENTER to use the default(10):
-#
-# Specify the verb to use in HTTP request? (-t )or type ENTER to continue.
-#
-# #if dont insert omit the option for the comand
-#
-# Specify the maximum length of fallow up data? (-x) or type ENTER to use the default(24):
-            break #to continue append comands outside the case
+            slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the interval between fallow up data?: (-i) or type ENTER to use the default(10):"  "-i" "10" "1")"
+            slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the verb to use in HTTP request? (-t )or type ENTER to continue."  "-t" "" "0")"
+            slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the maximum length of fallow up data? (-x) or type ENTER to use the default(24): "  "-x" "24" "1")"
+
+            break #to continue append comands outside the case ;;
             ;;
             4)
-#            Specify the verb to use in HTTP request? (-t )or type ENTER to continue.
-#
-# Specify the start value for Range Header Attack(-a) or type ENTER to use the default(10):
-#
-# Specify the limit value for Ranger Header Attack(-b) or type ENTER to use the default(3000)
+            slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the verb to use in HTTP request? (-t )or type ENTER to to use the default(TESTVERB): "  "-t" "TESTVERB" "1")"
+            slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the start value for Range Header Attack(-a) or type ENTER to use the default(10): "  "-a" "10" "1")"
+            slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the limit value for Ranger Header Attack(-b) or type ENTER to use the default(3000)"  "-b" "3000" "1")"
+
             break #to continue append comands outside the case
             ;;
             0)
@@ -323,11 +313,27 @@ slowhttptestmenu(){
         esac
     done
 
+    slowhttpapendcommand="$slowhttpapendcommand $(appendvar "How many connections to the server(-c)?  or type ENTER to use the default(1000): "  "-c" "1000" "1")"
+    slowhttpapendcommand="$slowhttpapendcommand $(appendvar "How many conections per second? (-r) or type ENTER to use the default(200): "  "-r" "200" "1")"
+    slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the number of bytes to read from de buffer on each read() operation?(-z) or type ENTER to use the default value(32):"  "-z" "32" "1")"
+    slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify the interval to wait for HTTP response on probe connection? (Time to consider server Do/Sed)(-p) or type ENTER to use the default (3): "  "-z" "32" "1")"
+    slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Specify test duration ?(-l) or type ENTER to use the default(240): "  "-l" "240" "1")"
+    slowhttpapendcommand="$slowhttpapendcommand $(appendvar "Need log?(-o) Type  the location file or ENTER to continue: "  "-g -o" "240" "0")"
 
 exe eval "slowhttptest -u $slowhttptesttargeturl $slowhttpapendcommand"
 
 
 }
+
+
+
+
+
+
+
+
+
+### CONTINUE REVISTING THE SCRIPT AFTER HERE
 
 
 dirsearchmenu(){
